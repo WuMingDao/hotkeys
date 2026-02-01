@@ -68,13 +68,8 @@ export function useHotkey(
   const { enabled = true, ...hotkeyOptions } = options
 
   // Extract options for stable dependencies
-  const {
-    preventDefault,
-    stopPropagation,
-    platform,
-    eventType,
-    requireReset,
-  } = hotkeyOptions
+  const { preventDefault, stopPropagation, platform, eventType, requireReset } =
+    hotkeyOptions
 
   // Use refs to keep callback and hotkey stable across renders
   const callbackRef = useRef(callback)
@@ -84,8 +79,7 @@ export function useHotkey(
   hotkeyRef.current = hotkey
 
   // Serialize hotkey for dependency comparison
-  const hotkeyKey =
-    typeof hotkey === 'string' ? hotkey : JSON.stringify(hotkey)
+  const hotkeyKey = typeof hotkey === 'string' ? hotkey : JSON.stringify(hotkey)
 
   useEffect(() => {
     if (!enabled) {

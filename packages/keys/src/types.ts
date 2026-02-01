@@ -136,10 +136,10 @@ export type PunctuationKey =
 /**
  * Keys that don't change their value when Shift is pressed.
  * These keys produce the same `KeyboardEvent.key` value whether Shift is held or not.
- * 
+ *
  * Excludes NumberKey (Shift+1 produces '!' on US layout) and PunctuationKey
  * (Shift+',' produces '<' on US layout).
- * 
+ *
  * Used in hotkey type definitions to prevent layout-dependent issues when Shift
  * is part of the modifier combination.
  */
@@ -148,11 +148,11 @@ type ShiftUnaffectedKey = LetterKey | EditingKey | NavigationKey | FunctionKey
 /**
  * Keys whose value changes when Shift is pressed.
  * These keys produce different `KeyboardEvent.key` values when Shift is held.
- * 
+ *
  * Examples:
  * - NumberKey: Shift+1 → '!' (on US layout)
  * - PunctuationKey: Shift+',' → '<' (on US layout)
- * 
+ *
  * These keys are excluded from Shift-based hotkey combinations to avoid
  * layout-dependent behavior, but can be used with other modifiers (Control, Alt, Meta, Mod).
  */
@@ -161,9 +161,7 @@ type ShiftAffectedKey = NumberKey | PunctuationKey
 /**
  * All supported non-modifier keys.
  */
-export type Key =
-  | ShiftUnaffectedKey
-  | ShiftAffectedKey
+export type Key = ShiftUnaffectedKey | ShiftAffectedKey
 
 /**
  * Keys that can be tracked as "held" (pressed down).
@@ -174,8 +172,6 @@ export type HeldKey = CanonicalModifier | Key
 // =============================================================================
 // Hotkey Types
 // =============================================================================
-
-
 
 /**
  * Single modifier + key combinations.
@@ -188,8 +184,6 @@ type SingleModifierHotkey =
   | `Shift+${ShiftUnaffectedKey}`
   | `Meta+${Key}`
   | `Mod+${Key}`
-
-
 
 /**
  * Two modifier + key combinations.
@@ -252,17 +246,17 @@ export type Hotkey =
 
 /**
  * A parsed representation of a hotkey string.
- * 
+ *
  * This interface provides a flexible fallback when the `Hotkey` type doesn't
  * fit your use case. You can pass a `ParsedHotkey` directly to hotkey functions
  * instead of a hotkey string, allowing for more dynamic or complex scenarios
  * that aren't covered by the type-safe `Hotkey` union.
- * 
+ *
  * @example
  * ```ts
  * // Type-safe hotkey string
  * useHotkey('Mod+S', handler)
- * 
+ *
  * // Fallback: parsed hotkey for dynamic scenarios
  * const parsed = parseHotkey(userInput)
  * useHotkey(parsed, handler) // Works even if userInput isn't in Hotkey type
