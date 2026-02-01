@@ -124,6 +124,8 @@ export function createHotkeyHandler(
   }
 }
 
+type MultiHotkeyHandler = { [K in Hotkey]?: HotkeyCallback }
+
 /**
  * Creates a handler that matches multiple hotkeys.
  *
@@ -143,7 +145,7 @@ export function createHotkeyHandler(
  * ```
  */
 export function createMultiHotkeyHandler(
-  handlers: { [K in Hotkey]?: HotkeyCallback },
+  handlers: MultiHotkeyHandler,
   options: CreateHotkeyHandlerOptions = {},
 ): (event: KeyboardEvent) => void {
   const { preventDefault = false, stopPropagation = false, platform } = options
