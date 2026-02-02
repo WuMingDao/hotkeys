@@ -110,6 +110,7 @@ export class HotkeyManager {
         eventType: 'keydown',
         requireReset: false,
         enabled: true,
+        ignoreInputs: true,
         ...options,
         platform,
       },
@@ -235,6 +236,16 @@ export class HotkeyManager {
         continue
       }
 
+      // Check if we should ignore input elements (defaults to true)
+      if (registration.options.ignoreInputs !== false) {
+        if (this.isInputElement(event.target)) {
+          // Don't ignore if the hotkey is explicitly scoped to this input element
+          if (event.target !== registration.target) {
+            continue
+          }
+        }
+      }
+
       // Handle keydown events
       if (eventType === 'keydown') {
         if (registration.options.eventType !== 'keydown') {
@@ -357,6 +368,39 @@ export class HotkeyManager {
     return false
   }
 
+  /**
+   * Checks if an element is an input-like element that should be ignored.
+   *
+   * This includes:
+   * - HTMLInputElement (all input types)
+   * - HTMLTextAreaElement
+   * - HTMLSelectElement
+   * - Elements with contentEditable enabled
+   */
+  private isInputElement(element: EventTarget | null): boolean {
+    if (!element) {
+      return false
+    }
+
+    // Check for standard input elements
+    if (
+      element instanceof HTMLInputElement ||
+      element instanceof HTMLTextAreaElement ||
+      element instanceof HTMLSelectElement
+    ) {
+      return true
+    }
+
+    // Check for contenteditable elements
+    if (element instanceof HTMLElement) {
+      const contentEditable = element.contentEditable
+      if (contentEditable === 'true' || contentEditable === '') {
+        return true
+      }
+    }
+
+    return false
+  }
 
   /**
    * Determines if a registration should be reset based on the keyup event.

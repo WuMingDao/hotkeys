@@ -82,6 +82,7 @@ export function useHotkey(
     platform,
     eventType,
     requireReset,
+    ignoreInputs,
     target,
   } = hotkeyOptions
 
@@ -147,7 +148,7 @@ export function useHotkey(
 
     // Check if target has changed (important for refs)
     const previousTarget = resolvedTargetRef.current
-    if (previousTarget === resolvedTarget && previousTarget !== null) {
+    if (previousTarget === resolvedTarget) {
       // Target hasn't changed, but we still need to re-register if other deps changed
       // This will be handled by the unregister/register cycle below
     }
@@ -173,6 +174,7 @@ export function useHotkey(
     if (platform !== undefined) registerOptions.platform = platform
     if (eventType !== undefined) registerOptions.eventType = eventType
     if (requireReset !== undefined) registerOptions.requireReset = requireReset
+    if (ignoreInputs !== undefined) registerOptions.ignoreInputs = ignoreInputs
 
     const unregister = manager.register(
       hotkeyString,
@@ -191,6 +193,7 @@ export function useHotkey(
     platform,
     eventType,
     requireReset,
+    ignoreInputs,
     hotkeyKey,
     // Note: For refs, changes to ref.current won't trigger this effect.
     // This is a React limitation - refs don't trigger re-renders.

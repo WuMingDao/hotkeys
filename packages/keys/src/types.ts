@@ -409,6 +409,8 @@ export interface HotkeyOptions {
   requireReset?: boolean
   /** Whether the hotkey is enabled. Defaults to true */
   enabled?: boolean
+  /** Whether to ignore hotkeys when keyboard events originate from input-like elements (input, textarea, select, contenteditable). Defaults to true */
+  ignoreInputs?: boolean
   /** The DOM element to attach the event listener to. Defaults to document. */
   target?: HTMLElement | Document | Window | null
 }
