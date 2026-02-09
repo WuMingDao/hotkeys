@@ -63,7 +63,7 @@ for (const [id, reg] of manager.registrations.state) {
 destroy(): void;
 ```
 
-Defined in: [hotkey-manager.ts:764](https://github.com/TanStack/keys/blob/main/packages/keys/src/hotkey-manager.ts#L764)
+Defined in: [hotkey-manager.ts:779](https://github.com/TanStack/keys/blob/main/packages/keys/src/hotkey-manager.ts#L779)
 
 Destroys the manager and removes all listeners.
 
@@ -79,7 +79,7 @@ Destroys the manager and removes all listeners.
 getRegistrationCount(): number;
 ```
 
-Defined in: [hotkey-manager.ts:735](https://github.com/TanStack/keys/blob/main/packages/keys/src/hotkey-manager.ts#L735)
+Defined in: [hotkey-manager.ts:750](https://github.com/TanStack/keys/blob/main/packages/keys/src/hotkey-manager.ts#L750)
 
 Gets the number of registered hotkeys.
 
@@ -95,7 +95,7 @@ Gets the number of registered hotkeys.
 isRegistered(hotkey, target?): boolean;
 ```
 
-Defined in: [hotkey-manager.ts:746](https://github.com/TanStack/keys/blob/main/packages/keys/src/hotkey-manager.ts#L746)
+Defined in: [hotkey-manager.ts:761](https://github.com/TanStack/keys/blob/main/packages/keys/src/hotkey-manager.ts#L761)
 
 Checks if a specific hotkey is registered.
 
@@ -186,7 +186,7 @@ handle.unregister()
 triggerRegistration(id): boolean;
 ```
 
-Defined in: [hotkey-manager.ts:699](https://github.com/TanStack/keys/blob/main/packages/keys/src/hotkey-manager.ts#L699)
+Defined in: [hotkey-manager.ts:714](https://github.com/TanStack/keys/blob/main/packages/keys/src/hotkey-manager.ts#L714)
 
 Triggers a registration's callback programmatically from devtools.
 Creates a synthetic KeyboardEvent and invokes the callback.
