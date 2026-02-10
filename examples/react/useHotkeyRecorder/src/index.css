@@ -185,17 +185,17 @@ button:active {
   font-style: italic;
   font-size: 14px;
 }
-.held-keys {
+.held-hotkeys {
   display: flex;
   align-items: center;
   gap: 4px;
 }
-.held-keys .plus {
+.held-hotkeys .plus {
   color: #856404;
   font-size: 16px;
   margin: 0 4px;
 }
-.held-keys kbd {
+.held-hotkeys kbd {
   background: #ffc107;
   border-color: #ff9800;
   color: #856404;

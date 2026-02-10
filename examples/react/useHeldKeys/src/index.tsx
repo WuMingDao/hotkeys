@@ -4,8 +4,8 @@ import {
   formatKeyForDebuggingDisplay,
   useHeldKeys,
   useHeldKeyCodes,
-} from '@tanstack/react-keys'
-import { keysDevtoolsPlugin } from '@tanstack/react-keys-devtools'
+} from '@tanstack/react-hotkeys'
+import { keysDevtoolsPlugin } from '@tanstack/react-hotkeys-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import './index.css'
 
@@ -77,7 +77,7 @@ function App() {
 
         <section className="demo-section">
           <h2>Usage</h2>
-          <pre className="code-block">{`import { useHeldKeys } from '@tanstack/react-keys'
+          <pre className="code-block">{`import { useHeldKeys } from '@tanstack/react-hotkeys'
 
 function KeyDisplay() {
   const heldKeys = useHeldKeys()

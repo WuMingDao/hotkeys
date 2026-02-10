@@ -6,8 +6,8 @@ import {
   useHeldKeys,
   useHotkeyRecorder,
   type Hotkey,
-} from '@tanstack/react-keys'
-import { keysDevtoolsPlugin } from '@tanstack/react-keys-devtools'
+} from '@tanstack/react-hotkeys'
+import { keysDevtoolsPlugin } from '@tanstack/react-hotkeys-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import './index.css'
 
@@ -272,7 +272,7 @@ function App() {
 
         <section className="demo-section">
           <h2>Usage</h2>
-          <pre className="code-block">{`import { useHotkey, formatForDisplay } from '@tanstack/react-keys'
+          <pre className="code-block">{`import { useHotkey, formatForDisplay } from '@tanstack/react-hotkeys'
 
 function App() {
   const [shortcuts, setShortcuts] = useState({
@@ -325,7 +325,7 @@ function ShortcutListItem({
           {isRecording ? (
             <div className="recording-indicator">
               {heldKeys.length > 0 ? (
-                <div className="held-keys">
+                <div className="held-hotkeys">
                   {heldKeys.map((key, index) => (
                     <React.Fragment key={key}>
                       {index > 0 && <span className="plus">+</span>}

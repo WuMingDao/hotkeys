@@ -5,7 +5,7 @@ title: UseHotkeyOptions
 
 # Interface: UseHotkeyOptions
 
-Defined in: [useHotkey.ts:11](https://github.com/TanStack/keys/blob/main/packages/react-keys/src/useHotkey.ts#L11)
+Defined in: [useHotkey.ts:11](https://github.com/TanStack/keys/blob/main/packages/react-hotkeys/src/useHotkey.ts#L11)
 
 ## Extends
 
@@ -24,7 +24,7 @@ optional target:
   | null;
 ```
 
-Defined in: [useHotkey.ts:17](https://github.com/TanStack/keys/blob/main/packages/react-keys/src/useHotkey.ts#L17)
+Defined in: [useHotkey.ts:17](https://github.com/TanStack/keys/blob/main/packages/react-hotkeys/src/useHotkey.ts#L17)
 
 The DOM element to attach the event listener to.
 Can be a React ref, direct DOM element, or null.

@@ -3,31 +3,31 @@
 ## Core Package
 
 ```bash
-npm install @tanstack/keys
+npm install @tanstack/hotkeys
 # or
-pnpm add @tanstack/keys
+pnpm add @tanstack/hotkeys
 # or
-yarn add @tanstack/keys
+yarn add @tanstack/hotkeys
 ```
 
 ## React
 
 ```bash
-npm install @tanstack/react-keys
+npm install @tanstack/react-hotkeys
 # or
-pnpm add @tanstack/react-keys
+pnpm add @tanstack/react-hotkeys
 # or
-yarn add @tanstack/react-keys
+yarn add @tanstack/react-hotkeys
 ```
 
 ## Solid
 
 ```bash
-npm install @tanstack/solid-keys
+npm install @tanstack/solid-hotkeys
 # or
-pnpm add @tanstack/solid-keys
+pnpm add @tanstack/solid-hotkeys
 # or
-yarn add @tanstack/solid-keys
+yarn add @tanstack/solid-hotkeys
 ```
 
 ## Devtools
@@ -35,11 +35,11 @@ yarn add @tanstack/solid-keys
 ### React Devtools
 
 ```bash
-npm install @tanstack/react-keys-devtools
+npm install @tanstack/react-hotkeys-devtools
 ```
 
 ### Solid Devtools
 
 ```bash
-npm install @tanstack/solid-keys-devtools
+npm install @tanstack/solid-hotkeys-devtools
 ```

@@ -7,7 +7,7 @@ The Solid adapter provides primitives for using Keys in Solid applications.
 The `createTemplateSignal` primitive connects a Keys instance to Solid's reactivity system.
 
 ```tsx
-import { createTemplateSignal } from '@tanstack/solid-keys'
+import { createTemplateSignal } from '@tanstack/solid-hotkeys'
 
 function MyComponent() {
   const keys = createTemplate()

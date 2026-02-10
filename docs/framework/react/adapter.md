@@ -7,7 +7,7 @@ The React adapter provides hooks for using Keys in React applications.
 The `useTemplate` hook connects a Keys instance to React's reactivity system.
 
 ```tsx
-import { useTemplate } from '@tanstack/react-keys'
+import { useTemplate } from '@tanstack/react-hotkeys'
 
 function MyComponent() {
   const keys = React.useMemo(() => createTemplate(), [])

@@ -1,4 +1,4 @@
-# TanStack Keys
+# TanStack Hotkeys
 
 This is a keys for creating new TanStack libraries.
 

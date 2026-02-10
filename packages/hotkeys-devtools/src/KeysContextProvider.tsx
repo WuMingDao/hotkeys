@@ -1,0 +1,67 @@
+import {
+  createContext,
+  createEffect,
+  createSignal,
+  onCleanup,
+  useContext,
+} from 'solid-js'
+import { HotkeyManager, KeyStateTracker } from '@tanstack/hotkeys'
+import type { Accessor } from 'solid-js'
+import type { HotkeyRegistration } from '@tanstack/hotkeys'
+
+interface KeysDevtoolsContextType {
+  registrations: Accessor<Array<HotkeyRegistration>>
+  heldKeys: Accessor<Array<string>>
+  heldCodes: Accessor<Record<string, string>>
+}
+
+const KeysDevtoolsContext = createContext<KeysDevtoolsContextType>({
+  registrations: () => [],
+  heldKeys: () => [],
+  heldCodes: () => ({}),
+})
+
+export function KeysContextProvider(props: { children: any }) {
+  const manager = HotkeyManager.getInstance()
+  const tracker = KeyStateTracker.getInstance()
+
+  // Create local signals that will be updated by subscriptions
+  const [registrations, setRegistrations] = createSignal<
+    Array<HotkeyRegistration>
+  >(Array.from(manager.registrations.state.values()))
+  const [heldKeys, setHeldKeys] = createSignal<Array<string>>(
+    tracker.store.state.heldKeys,
+  )
+  const [heldCodes, setHeldCodes] = createSignal<Record<string, string>>(
+    tracker.store.state.heldCodes,
+  )
+
+  // Subscribe to HotkeyManager registrations store
+  createEffect(() => {
+    const unsubscribe = manager.registrations.subscribe(() => {
+      setRegistrations(Array.from(manager.registrations.state.values()))
+    })
+    onCleanup(() => unsubscribe())
+  })
+
+  // Subscribe to KeyStateTracker store
+  createEffect(() => {
+    const unsubscribe = tracker.store.subscribe(() => {
+      setHeldKeys(tracker.store.state.heldKeys)
+      setHeldCodes(tracker.store.state.heldCodes)
+    })
+    onCleanup(() => unsubscribe())
+  })
+
+  return (
+    <KeysDevtoolsContext.Provider
+      value={{ registrations, heldKeys, heldCodes }}
+    >
+      {props.children}
+    </KeysDevtoolsContext.Provider>
+  )
+}
+
+export function useKeysDevtoolsState() {
+  return useContext(KeysDevtoolsContext)
+}

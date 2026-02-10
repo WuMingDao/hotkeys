@@ -9,7 +9,7 @@ title: useHeldKeyCodes
 function useHeldKeyCodes(): Record<string, string>;
 ```
 
-Defined in: [useHeldKeyCodes.ts:30](https://github.com/TanStack/keys/blob/main/packages/react-keys/src/useHeldKeyCodes.ts#L30)
+Defined in: [useHeldKeyCodes.ts:30](https://github.com/TanStack/keys/blob/main/packages/react-hotkeys/src/useHeldKeyCodes.ts#L30)
 
 React hook that returns a map of currently held key names to their physical `event.code` values.
 

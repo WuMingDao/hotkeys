@@ -9,7 +9,7 @@ title: isModifierKey
 function isModifierKey(event): boolean;
 ```
 
-Defined in: [parse.ts:215](https://github.com/TanStack/keys/blob/main/packages/keys/src/parse.ts#L215)
+Defined in: [parse.ts:215](https://github.com/TanStack/keys/blob/main/packages/hotkeys/src/parse.ts#L215)
 
 Checks if a KeyboardEvent represents a modifier-only key press.
 

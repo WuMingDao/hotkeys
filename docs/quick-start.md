@@ -3,7 +3,7 @@
 ## Core Usage
 
 ```typescript
-import { createTemplate } from '@tanstack/keys'
+import { createTemplate } from '@tanstack/hotkeys'
 
 const keys = createTemplate({ message: 'Hello!' })
 keys.greet() // Logs: Hello!
@@ -12,8 +12,8 @@ keys.greet() // Logs: Hello!
 ## React Usage
 
 ```tsx
-import { createTemplate } from '@tanstack/keys'
-import { useTemplate } from '@tanstack/react-keys'
+import { createTemplate } from '@tanstack/hotkeys'
+import { useTemplate } from '@tanstack/react-hotkeys'
 
 function App() {
   const keys = React.useMemo(() => createTemplate(), [])
@@ -26,8 +26,8 @@ function App() {
 ## Solid Usage
 
 ```tsx
-import { createTemplate } from '@tanstack/keys'
-import { createTemplateSignal } from '@tanstack/solid-keys'
+import { createTemplate } from '@tanstack/hotkeys'
+import { createTemplateSignal } from '@tanstack/solid-hotkeys'
 
 function App() {
   const keys = createTemplate()
@@ -42,7 +42,7 @@ function App() {
 ### React
 
 ```tsx
-import { TemplateDevtools } from '@tanstack/react-keys-devtools'
+import { TemplateDevtools } from '@tanstack/react-hotkeys-devtools'
 
 function App() {
   // ... your code
@@ -59,7 +59,7 @@ function App() {
 ### Solid
 
 ```tsx
-import { TemplateDevtools } from '@tanstack/solid-keys-devtools'
+import { TemplateDevtools } from '@tanstack/solid-hotkeys-devtools'
 
 function App() {
   // ... your code

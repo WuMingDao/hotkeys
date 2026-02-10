@@ -1,5 +1,5 @@
 ---
-'@tanstack/keys': minor
+'@tanstack/hotkeys': minor
 ---
 
 Add hotkey conflict detection with configurable behavior

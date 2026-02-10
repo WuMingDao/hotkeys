@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { formatForDisplay, useHotkey } from '@tanstack/react-keys'
-import { keysDevtoolsPlugin } from '@tanstack/react-keys-devtools'
+import { formatForDisplay, useHotkey } from '@tanstack/react-hotkeys'
+import { keysDevtoolsPlugin } from '@tanstack/react-hotkeys-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
-import type { Hotkey } from '@tanstack/react-keys'
+import type { Hotkey } from '@tanstack/react-hotkeys'
 import './index.css'
 
 function App() {

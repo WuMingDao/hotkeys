@@ -1,9 +1,9 @@
 ---
-id: "@tanstack/react-keys"
-title: "@tanstack/react-keys"
+id: "@tanstack/react-hotkeys"
+title: "@tanstack/react-hotkeys"
 ---
 
-# @tanstack/react-keys
+# @tanstack/react-hotkeys
 
 ## Interfaces
 

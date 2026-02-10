@@ -1,9 +1,9 @@
 ---
-id: "@tanstack/keys"
-title: "@tanstack/keys"
+id: "@tanstack/hotkeys"
+title: "@tanstack/hotkeys"
 ---
 
-# @tanstack/keys
+# @tanstack/hotkeys
 
 ## Classes
 

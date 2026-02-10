@@ -9,7 +9,7 @@ title: convertToModFormat
 function convertToModFormat(hotkey, platform): Hotkey;
 ```
 
-Defined in: [parse.ts:276](https://github.com/TanStack/keys/blob/main/packages/keys/src/parse.ts#L276)
+Defined in: [parse.ts:276](https://github.com/TanStack/keys/blob/main/packages/hotkeys/src/parse.ts#L276)
 
 Converts a hotkey string to use 'Mod' format for portability.
 

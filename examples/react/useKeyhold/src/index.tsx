@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'
-import { useKeyHold } from '@tanstack/react-keys'
-import { keysDevtoolsPlugin } from '@tanstack/react-keys-devtools'
+import { useKeyHold } from '@tanstack/react-hotkeys'
+import { keysDevtoolsPlugin } from '@tanstack/react-hotkeys-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import './index.css'
 
@@ -62,7 +62,7 @@ function App() {
 
         <section className="demo-section">
           <h2>Usage</h2>
-          <pre className="code-block">{`import { useKeyHold } from '@tanstack/react-keys'
+          <pre className="code-block">{`import { useKeyHold } from '@tanstack/react-hotkeys'
 
 function ShiftIndicator() {
   const isShiftHeld = useKeyHold('Shift')
@@ -82,7 +82,7 @@ function ShiftIndicator() {
           </p>
           <div className={`secret-box ${isShiftHeld ? 'revealed' : ''}`}>
             {isShiftHeld ? (
-              <span>🎉 The secret password is: tanstack-keys-rocks!</span>
+              <span>🎉 The secret password is: tanstack-hotkeys-rocks!</span>
             ) : (
               <span>••••••••••••••••••••••••••</span>
             )}

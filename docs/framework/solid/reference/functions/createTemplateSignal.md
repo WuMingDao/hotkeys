@@ -10,7 +10,7 @@ function createTemplateSignal(keys): Accessor<{
 }>;
 ```
 
-Defined in: solid-keys/src/createTemplate.ts:5
+Defined in: solid-hotkeys/src/createTemplate.ts:5
 
 ## Parameters
 
