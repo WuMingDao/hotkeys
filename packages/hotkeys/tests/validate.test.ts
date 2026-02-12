@@ -51,41 +51,15 @@ describe('validateHotkey', () => {
   })
 
   describe('warnings', () => {
-    it('should warn about Alt+letter on macOS', () => {
-      const result = validateHotkey('Alt+C')
-      expect(result.valid).toBe(true)
-      expect(result.warnings.length).toBeGreaterThan(0)
-      expect(
-        result.warnings.some((w) => w.includes('macOS') && w.includes('Alt')),
-      ).toBe(true)
-    })
-
-    it('should warn about Option+letter (same as Alt)', () => {
-      const result = validateHotkey('Option+C')
-      expect(result.valid).toBe(true)
-      expect(result.warnings.length).toBeGreaterThan(0)
-    })
-
-    it('should warn about Shift+number', () => {
-      const result = validateHotkey('Shift+2')
-      expect(result.valid).toBe(true)
-      expect(result.warnings.length).toBeGreaterThan(0)
-      expect(result.warnings.some((w) => w.includes('keyboard layouts'))).toBe(
-        true,
-      )
-    })
-
-    it('should warn about Alt+Shift+letter', () => {
-      const result = validateHotkey('Alt+Shift+A')
-      expect(result.valid).toBe(true)
-      expect(result.warnings.length).toBeGreaterThan(0)
-    })
-
     it('should not warn about safe combinations', () => {
       expect(validateHotkey('Control+A').warnings).toHaveLength(0)
       expect(validateHotkey('Mod+S').warnings).toHaveLength(0)
       expect(validateHotkey('Control+Shift+A').warnings).toHaveLength(0)
       expect(validateHotkey('Escape').warnings).toHaveLength(0)
+      // event.code fallback makes these work reliably across layouts
+      expect(validateHotkey('Alt+C').warnings).toHaveLength(0)
+      expect(validateHotkey('Shift+2').warnings).toHaveLength(0)
+      expect(validateHotkey('Alt+Shift+A').warnings).toHaveLength(0)
     })
 
     it('should warn about unknown keys but still be valid', () => {
@@ -128,10 +102,10 @@ describe('checkHotkey', () => {
   it('should log warnings to console', () => {
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
-    checkHotkey('Alt+C')
+    checkHotkey('Control+SomeWeirdKey')
 
     expect(warnSpy).toHaveBeenCalled()
-    expect(warnSpy.mock.calls[0]?.[0]).toContain('Alt+C')
+    expect(warnSpy.mock.calls[0]?.[0]).toContain('Control+SomeWeirdKey')
 
     warnSpy.mockRestore()
   })

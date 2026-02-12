@@ -1,10 +1,4 @@
-import {
-  ALL_KEYS,
-  LETTER_KEYS,
-  MODIFIER_ALIASES,
-  NUMBER_KEYS,
-} from './constants'
-import { parseHotkey } from './parse'
+import { ALL_KEYS, MODIFIER_ALIASES } from './constants'
 import type { Hotkey, ValidationResult } from './hotkey'
 
 /**
@@ -14,7 +8,6 @@ import type { Hotkey, ValidationResult } from './hotkey'
  * - Valid syntax (modifier+...+key format)
  * - Known modifiers
  * - Known keys
- * - Potential issues like Alt+letter on macOS or Shift+number
  *
  * @param hotkey - The hotkey string to validate
  * @returns A ValidationResult with validity status, warnings, and errors
@@ -23,12 +16,6 @@ import type { Hotkey, ValidationResult } from './hotkey'
  * ```ts
  * validateHotkey('Mod+S')
  * // { valid: true, warnings: [], errors: [] }
- *
- * validateHotkey('Alt+C')
- * // { valid: true, warnings: ['Alt+letter shortcuts may not work reliably on macOS...'], errors: [] }
- *
- * validateHotkey('Shift+1')
- * // { valid: true, warnings: ['Shift+number produces different characters on different keyboard layouts...'], errors: [] }
  *
  * validateHotkey('')
  * // { valid: false, warnings: [], errors: ['Hotkey cannot be empty'] }
@@ -78,34 +65,6 @@ export function validateHotkey(
   if (!isKnownKey(normalizedKey) && !isKnownKey(keyPart)) {
     warnings.push(
       `Unknown key: '${keyPart}'. This may still work but won't have type-safe autocomplete.`,
-    )
-  }
-
-  // Parse to check for specific issues
-  const parsed = parseHotkey(hotkey)
-
-  // Warn about Alt+letter on macOS
-  if (parsed.alt && isLetterKey(parsed.key)) {
-    warnings.push(
-      `Alt+${parsed.key} may not work reliably on macOS because the Option key modifies the character. ` +
-        `Consider using Control or Command instead.`,
-    )
-  }
-
-  // Warn about Shift+number
-  if (parsed.shift && isNumberKey(parsed.key)) {
-    warnings.push(
-      `Shift+${parsed.key} produces different characters on different keyboard layouts ` +
-        `(e.g., Shift+2 is '@' on US keyboards but '"' on UK keyboards). ` +
-        `Consider using a letter key or the resulting symbol directly.`,
-    )
-  }
-
-  // Warn about Alt+Shift combinations with letters
-  if (parsed.alt && parsed.shift && isLetterKey(parsed.key)) {
-    warnings.push(
-      `Alt+Shift+${parsed.key} may produce unexpected characters on various keyboard layouts. ` +
-        `Consider using a different modifier combination.`,
     )
   }
 
@@ -161,20 +120,6 @@ function isKnownKey(key: string): boolean {
   }
 
   return key in aliases
-}
-
-/**
- * Checks if a key is a letter key (A-Z).
- */
-function isLetterKey(key: string): boolean {
-  return LETTER_KEYS.has(key.toUpperCase() as any)
-}
-
-/**
- * Checks if a key is a number key (0-9).
- */
-function isNumberKey(key: string): boolean {
-  return NUMBER_KEYS.has(key as any)
 }
 
 /**

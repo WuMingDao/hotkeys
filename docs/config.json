@@ -288,6 +288,65 @@
       ]
     },
     {
+      "collapsible": true,
+      "defaultCollapsed": true,
+      "label": "Format for Display API Reference",
+      "children": [
+        {
+          "label": "formatForDisplay",
+          "to": "reference/functions/formatForDisplay"
+        },
+        {
+          "label": "formatHotkey",
+          "to": "reference/functions/formatHotkey"
+        },
+        {
+          "label": "formatKeyForDebuggingDisplay",
+          "to": "reference/functions/formatKeyForDebuggingDisplay"
+        },
+        {
+          "label": "formatWithLabels",
+          "to": "reference/functions/formatWithLabels"
+        },
+        {
+          "label": "convertToModFormat",
+          "to": "reference/functions/convertToModFormat"
+        },
+        {
+          "label": "FormatDisplayOptions",
+          "to": "reference/interfaces/FormatDisplayOptions"
+        },
+        {
+          "label": "FormatKeyDebuggingOptions",
+          "to": "reference/interfaces/FormatKeyDebuggingOptions"
+        },
+        {
+          "label": "KEY_DISPLAY_SYMBOLS",
+          "to": "reference/variables/KEY_DISPLAY_SYMBOLS"
+        },
+        {
+          "label": "MAC_MODIFIER_SYMBOLS",
+          "to": "reference/variables/MAC_MODIFIER_SYMBOLS"
+        },
+        {
+          "label": "STANDARD_MODIFIER_LABELS",
+          "to": "reference/variables/STANDARD_MODIFIER_LABELS"
+        },
+        {
+          "label": "MODIFIER_ALIASES",
+          "to": "reference/variables/MODIFIER_ALIASES"
+        },
+        {
+          "label": "MODIFIER_ORDER",
+          "to": "reference/variables/MODIFIER_ORDER"
+        },
+        {
+          "label": "MODIFIER_KEYS",
+          "to": "reference/variables/MODIFIER_KEYS"
+        }
+      ]
+    },
+    {
       "label": "Examples",
       "children": [],
       "frameworks": [
