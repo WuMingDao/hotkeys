@@ -118,7 +118,7 @@ importers:
   examples/react/useHotkey:
     dependencies:
       '@tanstack/react-hotkeys':
-        specifier: workspace:^
+        specifier: 0.0.3
         version: link:../../../packages/react-hotkeys
       react:
         specifier: ^19.2.4
@@ -131,7 +131,7 @@ importers:
         specifier: 0.9.5
         version: 0.9.5(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(csstype@3.2.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(solid-js@1.9.11)
       '@tanstack/react-hotkeys-devtools':
-        specifier: workspace:^
+        specifier: 0.0.2
         version: link:../../../packages/react-hotkeys-devtools
       '@types/react':
         specifier: ^19.2.13
